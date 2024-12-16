@@ -13,19 +13,23 @@ This Python script calculates and visualizes the Internal Rate of Return (IRR) a
 
 ## How To Use
 
-1.  **Install Requirements:** First, make sure you have the necessary libraries installed. You can usually use `pip install numpy numpy-financial matplotlib scipy tabulate`:
+**Install Requirements:**
+First, make sure you have the necessary libraries installed. You can usually use:
 ```bash
    pip install numpy numpy-financial matplotlib scipy tabulate
-Use code with caution.
+```
 
-Copy and Paste or Clone: Copy or clone this file to your local environment.
+**Running the Script**
 
-Run the Script: Execute the Python script using:
-
+Execute the Python script using:
+```bash
 python3 irr_xirr_fund_perf.py
-Use code with caution.
-Bash
-View Results:
+```
+
+**Results**
+
+![Screenshot from 2024-12-16 22-28-22](https://github.com/user-attachments/assets/e3cc86b1-b4d9-4817-a5c5-06bf7d59c2c4)
+
 
 The script will first display a table showing the cash flows of the different funds you are testing.
 
@@ -33,29 +37,28 @@ It will then output the calculated IRR (using both numpy and scipy), and the cal
 
 Press "Enter" to close the plot window and conclude the script.
 
-Understanding the Output
-Table of Cash Flows
 The table will show you the input data of your test. It has one line for each fund with the following data.
 
 Fund The name of the tested fund (A, B or C).
 
 Year 1, Year 2, etc The amount of the cash flow for the specific year.
 
-IRR and XIRR Results
+**IRR and XIRR Results**
+
 The output of the script will include:
 
-IRR (numpy): The Internal Rate of Return calculated by numpy_financial.
+*   IRR (numpy): The Internal Rate of Return calculated by numpy_financial.
+*   IRR (scipy): The Internal Rate of Return calculated by scipy.optimize.
+*   XIRR The eXtended Internal Rate of Return, considering the timing of the cashflows.
 
-IRR (scipy): The Internal Rate of Return calculated by scipy.optimize.
+**The NPV vs. Discount Rate Plot**
 
-XIRR The eXtended Internal Rate of Return, considering the timing of the cashflows.
+![Screenshot from 2024-12-16 22-25-50](https://github.com/user-attachments/assets/8be025c0-5cf3-4ec5-aa9b-03f976882bc7)
 
-The NPV vs. Discount Rate Plot
 The plot shows:
 
-X-axis (Discount Rate): This shows the different discount rates being applied from -50% to 100% to calculate the Net Present Value.
-
-Y-axis (Net Present Value): The NPV is the value of all discounted cashflows.
+*   X-axis (Discount Rate): This shows the different discount rates being applied from -50% to 100% to calculate the Net Present Value.
+*   Y-axis (Net Present Value): The NPV is the value of all discounted cashflows.
 
 The lines: They each represents the evolution of the NPV as a function of the discount rate, for each of the funds that are being tested.
 
@@ -64,28 +67,15 @@ NPV = 0 Line: The horizontal dashed line represents zero NPV. The point where a 
 How to Use this for Fund Benchmarking
 By using this script and the resulting graph, you can better understand:
 
-IRR: How do different cash flows impact the Internal Rate of Return.
+*   IRR: How do different cash flows impact the Internal Rate of Return.
+*   XIRR: How do specific dates of cash flows impact the extended internal rate of return
+*   NPV Sensitivity: By looking at the different curves, you will quickly visualize how a fund responds to changes in the discount rate (this shows the risk level of a given fund)
+*   Comparing Returns: The IRR is a very useful metric to compare the returns and profitability of different funds.
 
-XIRR: How do specific dates of cash flows impact the extended internal rate of return
-
-NPV Sensitivity: By looking at the different curves, you will quickly visualize how a fund responds to changes in the discount rate (this shows the risk level of a given fund)
-
-Comparing Returns: The IRR is a very useful metric to compare the returns and profitability of different funds.
-
-Important: The examples provided are hypothetical, and you may need to tailor the code for your specific case.
-
-Dependencies
+**Dependencies**
 Python 3.x
-
 numpy
-
 numpy_financial
-
 matplotlib
-
 scipy
-
 tabulate
-
-Disclaimer
-Use this script at your own risk. The output of this script is for educational purposes.
