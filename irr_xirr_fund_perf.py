@@ -105,15 +105,18 @@ plt.axhline(y=0, color='black', linestyle='--', label='NPV = 0')
 plt.legend()
 plt.show()
 
-
 # Table Data
-table_headers = ["Year", "Fund A", "Fund B", "Fund C"]
+table_headers = ["Fund", "Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6"]
 table_data = []
-for i in range(len(cashflows_a)):
-  table_data.append([i+1, cashflows_a[i], cashflows_b[i],cashflows_c[i] ])
+
+table_data.append(["Fund A"] + cashflows_a)
+table_data.append(["Fund B"] + cashflows_b)
+table_data.append(["Fund C"] + cashflows_c)
+
 # Print results for comparison
 print("\n--- Fund Cash Flows ---")
 print(tabulate(table_data, headers=table_headers, tablefmt="grid"))
+
 
 print("\n--- IRR and XIRR ---")
 print(f"Fund A: IRR (numpy): {irr_a_npf:.4f}, IRR (scipy): {irr_a:.4f}, XIRR: {xirr_a:.4f}")
